@@ -1,0 +1,83 @@
+html_doc="""
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+<meta charset="UTF-8">
+<meta name="viewport" content="width-device-width,initial-scale=1.0"> 
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ilk web sayfam</title>
+</head>
+<body>
+<h1 id="header">
+        Python Kursu
+    </h1>
+
+
+    <div class ="group 1">
+        <h2>
+            Programlama
+        </h2>
+
+        <ul>
+            <li> Menü 1</li>
+            <li> Menü 2</li>
+            <li> Menü 3</li>
+        </ul>
+    </div>
+    <div class ="group 2">
+        <h2>
+            Modüller
+        </h2>
+
+        <ul>
+            <li> Menü 1</li>
+            <li> Menü 2</li>
+            <li> Menü 3</li>
+    </ul>
+    </div>
+    <div>
+        <img width="64" src="https://media-exp1.licdn.com/dms/image/C4D03AQFJc4ryHn-LJw/profile-displayphoto-shrink_100_100/0/1656578343914?e=1662595200&amp;v=beta&amp;t=NB9Xcd5X1T6ZSxajD3Vw8SO8YRfVNF0P2bM_v5q3TIs" loading="lazy" height="64" alt="Selçuk Özdemir adlı kullanıcının fotoğrafı" id="ember223" class="feed-identity-module__member-photo EntityPhoto-circle-5 lazy-image ember-view">
+    </div>
+    <div>
+        <img src="https://pps.whatsapp.net/v/t61.24694-24/245931588_1175626569956357_5243184673274657055_n.jpg?ccb=11-4&amp;oh=01_AVw6uWxy-szq_j2ZC66G2ikNqX51siot7qaTs9VONLaI8Q&amp;oe=62D93DAE" alt="" draggable="false" class="_8hzr9 M0JmA i0jNr" style="visibility: visible;">
+    </div>
+ 
+
+    <img src="" alt="">  
+    <a class="sister" href="htttp://example.com/bilmemne"></a>
+    <a class="sister" href="htttp://example3.com/bilmemne"></a>
+    <a class="sister" href="htttp://example2.com/bilmemne"></a>
+</body>
+</html>
+"""
+
+
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup(html_doc,'html.parser')
+
+result = soup.prettify()
+result = soup.title
+result = soup.head
+result = soup.body
+
+result = soup.title.string
+
+result = soup.h1
+result = soup.h2
+result = soup.h2.string
+result = soup.h1.string
+
+result = soup.find_all('h2')
+result = soup.div
+result = soup.find_all('div')
+result = soup.find_all('div')[0].ul.find_all('li')
+
+result = soup.div.findChildren()
+result = soup.div
+result=soup.div.findNextSibling()
+result=soup.div.findNextSibling().findPreviousSibling()
+
+result = soup.find_all('a')
+for link in result:
+    print(link.get('href'))
